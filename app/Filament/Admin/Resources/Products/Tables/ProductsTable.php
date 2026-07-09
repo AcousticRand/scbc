@@ -41,7 +41,7 @@ class ProductsTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                Filter::make('is_root')
+                //
             ])
             ->recordActions([
                 ViewAction::make(),
