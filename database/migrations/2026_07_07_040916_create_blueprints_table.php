@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('producer_id')->constrained();
             $table->integer('qty_produced')->default(1);
             $table->string('name');
-            $table->string('description');
+            $table->text('description')->nullable();
             $table->integer('sort_order')->default(0);
             $table->timestamps();
         });

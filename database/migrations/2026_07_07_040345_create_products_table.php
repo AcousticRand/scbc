@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->integer('category_id');
             $table->string('name');
-            $table->string('description');
+            $table->text('description')->nullable();
             $table->decimal('storage_units', 10, 1)->default(1.0);
             $table->decimal('price_each', 10, 2)->default(0.00);
             $table->integer('sort_order')->default(0);
+            $table->boolean('is_root')->default(false);
             $table->timestamps();
         });
     }

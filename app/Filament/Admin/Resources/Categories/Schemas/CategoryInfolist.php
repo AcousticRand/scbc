@@ -12,9 +12,11 @@ class CategoryInfolist
         return $schema
             ->components([
                 TextEntry::make('name'),
-                TextEntry::make('description'),
+                TextEntry::make('description')
+                    ->placeholder('-')
+                    ->columnSpanFull(),
                 TextEntry::make('sort_order')
-                    ->numeric(),
+                    ->numeric(thousandsSeparator: ''),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),

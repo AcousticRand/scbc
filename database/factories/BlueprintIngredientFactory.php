@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Blueprint;
 use App\Models\BlueprintIngredient;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +20,9 @@ class BlueprintIngredientFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'blueprint_id' => Blueprint::factory(),
+            'product_id' => Product::factory(),
+            'qty_required' => fake()->numberBetween(1, 10),
         ];
     }
 }

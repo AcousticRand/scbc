@@ -2,6 +2,8 @@
 
 namespace App\Filament\Admin\Resources\Producers\Schemas;
 
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 
 class ProducerForm
@@ -10,7 +12,10 @@ class ProducerForm
     {
         return $schema
             ->components([
-                //
+                TextInput::make('name')
+                    ->required(),
+                Textarea::make('description')
+                    ->columnSpanFull(),
             ]);
     }
 }

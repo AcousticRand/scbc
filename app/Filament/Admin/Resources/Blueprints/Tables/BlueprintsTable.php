@@ -15,16 +15,22 @@ class BlueprintsTable
     {
         return $table
             ->columns([
-                TextColumn::make('product_id')
-                    ->numeric()
+                TextColumn::make('product.name')
+                    ->searchable()
                     ->sortable(),
                 TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('description')
-                    ->searchable(),
-                TextColumn::make('sort_order')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('qty_produced')
                     ->numeric()
                     ->sortable(),
+                TextColumn::make('description')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('sort_order')
+                    ->numeric()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

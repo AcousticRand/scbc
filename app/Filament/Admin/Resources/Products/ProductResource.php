@@ -6,6 +6,7 @@ use App\Filament\Admin\Resources\Products\Pages\CreateProduct;
 use App\Filament\Admin\Resources\Products\Pages\EditProduct;
 use App\Filament\Admin\Resources\Products\Pages\ListProducts;
 use App\Filament\Admin\Resources\Products\Pages\ViewProduct;
+use App\Filament\Admin\Resources\Products\RelationManagers\BlueprintsRelationManager;
 use App\Filament\Admin\Resources\Products\Schemas\ProductForm;
 use App\Filament\Admin\Resources\Products\Schemas\ProductInfolist;
 use App\Filament\Admin\Resources\Products\Tables\ProductsTable;
@@ -21,8 +22,6 @@ class ProductResource extends Resource
     protected static ?string $model = Product::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
-    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {
@@ -42,7 +41,7 @@ class ProductResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            BlueprintsRelationManager::class,
         ];
     }
 
@@ -51,7 +50,7 @@ class ProductResource extends Resource
         return [
             'index' => ListProducts::route('/'),
             'create' => CreateProduct::route('/create'),
-            'view' => ViewProduct::route('/{record}'),
+//            'view' => ViewProduct::route('/{record}'),
             'edit' => EditProduct::route('/{record}/edit'),
         ];
     }

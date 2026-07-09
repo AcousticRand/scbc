@@ -6,6 +6,7 @@ use App\Filament\Admin\Resources\Blueprints\Pages\CreateBlueprint;
 use App\Filament\Admin\Resources\Blueprints\Pages\EditBlueprint;
 use App\Filament\Admin\Resources\Blueprints\Pages\ListBlueprints;
 use App\Filament\Admin\Resources\Blueprints\Pages\ViewBlueprint;
+use App\Filament\Admin\Resources\Blueprints\RelationManagers\IngredientsRelationManager;
 use App\Filament\Admin\Resources\Blueprints\Schemas\BlueprintForm;
 use App\Filament\Admin\Resources\Blueprints\Schemas\BlueprintInfolist;
 use App\Filament\Admin\Resources\Blueprints\Tables\BlueprintsTable;
@@ -42,7 +43,7 @@ class BlueprintResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            IngredientsRelationManager::class,
         ];
     }
 
@@ -51,7 +52,7 @@ class BlueprintResource extends Resource
         return [
             'index' => ListBlueprints::route('/'),
             'create' => CreateBlueprint::route('/create'),
-            'view' => ViewBlueprint::route('/{record}'),
+//            'view' => ViewBlueprint::route('/{record}'),
             'edit' => EditBlueprint::route('/{record}/edit'),
         ];
     }

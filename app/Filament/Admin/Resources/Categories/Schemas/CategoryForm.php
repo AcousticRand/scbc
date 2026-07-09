@@ -3,6 +3,7 @@
 namespace App\Filament\Admin\Resources\Categories\Schemas;
 
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 
 class CategoryForm
@@ -13,7 +14,8 @@ class CategoryForm
             ->components([
                 TextInput::make('name')
                     ->required(),
-                TextInput::make('description'),
+                Textarea::make('description')
+                    ->columnSpanFull(),
                 TextInput::make('sort_order')
                     ->required()
                     ->numeric()
